@@ -1,0 +1,8 @@
+<div class="p-2">
+  <%= render @entry %>
+</div>
+<div class="is-flex is-flex-direction-row is-justify-content-start ">
+  <%= link_to "Edit this entry", edit_entry_path(@entry), class: 'button mx-2 is-link is-light' %>
+  <%= link_to "Back to entries", entries_path, class: 'button is-link mx-2 is-light' %>
+  <%= button_to "Destroy this entry", @entry, method: :delete, class: 'button mx-2 is-danger' %>
+</div>

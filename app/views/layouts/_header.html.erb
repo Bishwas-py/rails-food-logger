@@ -1,0 +1,78 @@
+<section class="hero is-info is-small">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <%= link_to "All Entries", entries_path, class: "navbar-item" %>
+
+            <span class="navbar-item">
+              <%= link_to new_entry_path, class: "button is-info is-inverted" do %>
+                <span class="icon">
+                  <i class="fas fa-plus-circle"></i>
+                </span>
+                <span>Add New</span>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        <% if content_for(:title) %>
+          <%= yield :title %>
+        <% else %>
+          FoodLog &ndash; <%= DateTime.now.to_formatted_s %>
+        <% end %>
+      </p>
+      <p class="subtitle">
+        <% if content_for(:subtitle) %>
+          <%= yield :subtitle %>
+        <% else %>
+          Log your food details
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <!--  <div class="hero-foot">-->
+  <!--    <nav class="tabs is-boxed is-fullwidth">-->
+  <!--      <div class="container">-->
+  <!--        <ul>-->
+  <!--          <li class="is-active">-->
+  <!--            <a>Overview</a>-->
+  <!--          </li>-->
+  <!--          <li>-->
+  <!--            <a>Modifiers</a>-->
+  <!--          </li>-->
+  <!--          <li>-->
+  <!--            <a>Grid</a>-->
+  <!--          </li>-->
+  <!--          <li>-->
+  <!--            <a>Elements</a>-->
+  <!--          </li>-->
+  <!--          <li>-->
+  <!--            <a>Components</a>-->
+  <!--          </li>-->
+  <!--          <li>-->
+  <!--            <a>Layout</a>-->
+  <!--          </li>-->
+  <!--        </ul>-->
+  <!--      </div>-->
+  <!--    </nav>-->
+  <!--  </div>-->
+</section>
