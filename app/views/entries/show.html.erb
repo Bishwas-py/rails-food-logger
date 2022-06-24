@@ -1,8 +1,37 @@
-<div class="p-2">
-  <%= render @entry %>
+<% content_for :title do %>
+  <%= @entry.meal_type %> &dash; <%= @entry.created_at.to_fs %>
+<% end %>
+
+<div class="columns is-centered mt-6">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+        <%= @entry.meal_type %>
+      </p>
+      <p class="panel-block">
+        Calories: <%= @entry.calories %>
+      </p>
+      <p class="panel-block">
+        Proteins: <%= @entry.proteins %>
+      </p>
+      <p class="panel-block">
+        Carbohydrates: <%= @entry.carbohydrates %>
+      </p>
+      <p class="panel-block">
+        Fats: <%= @entry.fats %>
+      </p>
+    </nav>
+    <div class="columns is-mobile">
+      <div class="column is-flex">
+        <%= link_to "Edit this entry", edit_entry_path(@entry), class: 'button is-gray mr-2' %>
+        <%= button_to 'Delete', entry_path(@entry), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } },
+            class: 'button is-danger' %>
+      </div>
+      <div class="column">
+        <!---->
+      </div>
+    </div>
+  </div>
 </div>
-<div class="is-flex is-flex-direction-row is-justify-content-start ">
-  <%= link_to "Edit this entry", edit_entry_path(@entry), class: 'button mx-2 is-link is-light' %>
-  <%= link_to "Back to entries", entries_path, class: 'button is-link mx-2 is-light' %>
-  <%= button_to "Destroy this entry", @entry, method: :delete, class: 'button mx-2 is-danger' %>
-</div>
+
+
